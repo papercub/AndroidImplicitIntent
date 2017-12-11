@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView();
     }
 
-    private void initView(){
+    private void initView() {
         findViewById(R.id.btn_intent_1).setOnClickListener(this);
         findViewById(R.id.btn_intent_2).setOnClickListener(this);
         findViewById(R.id.btn_intent_3).setOnClickListener(this);
@@ -38,13 +38,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.btn_intent_2:
-                // TODO: ???
+                // TODO: Call Me
+                intent.setAction(intent.ACTION_CALL);
+                intent.setData(Uri.parse("Tel:0843693735"));
+                startActivity(intent);
                 break;
             case R.id.btn_intent_3:
-                // TODO: ???
+                // TODO: Open URL in browser
+                intent.setAction(intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https:www.facebook.com"));
+                startActivity(intent);
                 break;
             case R.id.btn_intent_4:
-                // TODO: ???
+                // TODO: Camera
+                intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT,
+                        Uri.withAppendedPath(Uri.parse("content://media/external/images/media/"), "photo.jpg"));
+                startActivity(intent);
                 break;
             case R.id.btn_intent_5:
                 // TODO: ???
